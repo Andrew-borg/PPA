@@ -7,15 +7,8 @@ package ppa;
 
 /**
  *
- * @author 796883
+ * @author Christopher
  */
-public class PPA {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Tile {
     
 }
