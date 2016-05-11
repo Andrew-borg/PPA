@@ -13,7 +13,11 @@ public class Window extends JPanel implements Runnable{
     private int fps = 60;
     private long timerLast;
     private boolean isFirst = true;
-    private Map map;
+    public static Map map;
+    public static Store store;
+    private int health = 100;
+    public static Point mouseClick = new Point(0,0);
+    public static Point mouseLocation = new Point(0,0);
     
     //public static Image[] groundTiles = new Image[2];
     //public String[] ground = new String[]{"grass"};
@@ -27,13 +31,21 @@ public class Window extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
         if(isFirst){
             map = new Map();
+            store = new Store();
             
             isFirst = false;
         }
         
-        g.clearRect(0, 0, getWidth(), getHeight());
+        g.setColor(Color.black);
+        g.fillRect(0, 0, getWidth(), getHeight());
         
         map.draw(g);
+        store.draw(g);
+        
+        g.setColor(Color.RED);
+        g.drawString("\t\tHealth: " + health, 
+                map.map[map.map.length-1][0].x + map.tileSize, 
+                map.map[map.map.length-1][0].y + map.tileSize);
     }
     
     public void run(){
@@ -41,8 +53,6 @@ public class Window extends JPanel implements Runnable{
         timerLast = System.currentTimeMillis();
         while(true){
             if(System.currentTimeMillis() - timerLast >= 1000/fps){  //restricts game to a certain framerate
-                
-                
                 repaint();
             }
         }

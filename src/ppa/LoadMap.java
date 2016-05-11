@@ -13,11 +13,11 @@ import java.util.Scanner;
 public class LoadMap {
     private static String map =
 "   1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
-"   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
-"   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
-"   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
-"   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
-"   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
+"   0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
+"   0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
+"   0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
+"   0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
+"   0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1    \n" +
 "   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
 "   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
 "   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    \n" +
@@ -31,9 +31,9 @@ public class LoadMap {
      static Scanner scan = new Scanner(map);
     
     public static void load(Tile[][] map){
-        for(int j = 0; j < map[0].length; j++){
-            for(int i = 0; i < map.length; i++){
-                map[i][j].setGroundID(scan.nextInt());
+        for(int y = 0; y < map[0].length; y++){
+            for(int x = 0; x < map.length; x++){
+                map[x][y].setGroundID(scan.nextInt());
             }
         }
     }

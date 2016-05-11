@@ -21,6 +21,9 @@ public class PPAFrame extends JFrame{
     public void init(){
         setLayout(new GridLayout(1, 1, 0, 0));
         
+        addMouseMotionListener(new Mouse());
+        addMouseListener(new Mouse());
+        
         Window window = new Window();
         add(window);
         
