@@ -15,10 +15,10 @@ public class Window extends JPanel implements Runnable{
     private boolean isFirst = true;
     private Map map;
     
-    public static Image[] groundTiles = new Image[2];
-    public String[] ground = new String[]{"grass"};
-    public static Image[] towerImages = new Image[1];
-    public String[] tower = new String[]{"none"};
+    //public static Image[] groundTiles = new Image[2];
+    //public String[] ground = new String[]{"grass"};
+    //public static Image[] towerImages = new Image[1];
+    //public String[] tower = new String[]{"none"};
     
     public Window(){
         game.start();
@@ -27,10 +27,6 @@ public class Window extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
         if(isFirst){
             map = new Map();
-            
-            for(int i = 0; i < groundTiles.length; i++){
-                groundTiles[i] = new ImageIcon("res/" + ground[0]).getImage();
-            }
             
             isFirst = false;
         }

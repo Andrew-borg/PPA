@@ -24,6 +24,7 @@ public class Map {
                 map[i][j] = new Tile(i * tileSize, j * tileSize, tileSize, tileSize, 0, 0);
             }
         }
+        LoadMap.load(map);
     }
     
     public void draw(Graphics g){
