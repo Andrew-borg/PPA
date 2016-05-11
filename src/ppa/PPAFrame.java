@@ -8,7 +8,7 @@ package ppa;
 import java.awt.*;
 import javax.swing.JFrame;
 
-// IGNORE THIS https://www.youtube.com/watch?v=Euiqdd09n68
+
 
 public class PPAFrame extends JFrame{
     private static String title = "Political Punching Academy - Andrew Borg and Shubit Kumar";
@@ -27,7 +27,7 @@ public class PPAFrame extends JFrame{
         setVisible(true);
     }
     
-    public void Frame(){
+    public PPAFrame(){
         setTitle(title);
         setSize(size);
         setResizable(false);

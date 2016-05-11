@@ -5,10 +5,24 @@
  */
 package ppa;
 
-/**
- *
- * @author Christopher
- */
-public class Tile {
+import java.awt.*;
+import javax.swing.*;
+
+
+public class Tile extends Rectangle{
+    private int groundID;
+    private int airID;
     
+    public Tile(int x, int y, int width, int height, int groundID, int airID){
+        setBounds(x, y, width, height);
+        this.groundID = groundID;
+        this.airID = airID;
+    }
+    
+    public void draw(Graphics g){
+        g.drawRect(x, y, width, height);
+        
+        g.drawImage(Window.groundTiles[], x, y, null);
+        g.drawi
+    }
 }

@@ -15,6 +15,11 @@ public class Window extends JPanel implements Runnable{
     private boolean isFirst = true;
     private Map map;
     
+    public static Image[] groundTiles = new Image[2];
+    public String[] ground = new String[]{"grass"};
+    public static Image[] towerImages = new Image[1];
+    public String[] tower = new String[]{"none"};
+    
     public Window(){
         game.start();
     }
@@ -23,15 +28,23 @@ public class Window extends JPanel implements Runnable{
         if(isFirst){
             map = new Map();
             
+            for(int i = 0; i < groundTiles.length; i++){
+                groundTiles[i] = new ImageIcon("res/" + ground[0]).getImage();
+            }
+            
             isFirst = false;
         }
+        
+        g.clearRect(0, 0, getWidth(), getHeight());
+        
+        map.draw(g);
     }
     
     public void run(){
         repaint();
         timerLast = System.currentTimeMillis();
         while(true){
-            if(!isFirst && System.currentTimeMillis() - timerLast >= 1000/fps){  //restricts game to a certain framerate
+            if(System.currentTimeMillis() - timerLast >= 1000/fps){  //restricts game to a certain framerate
                 
                 
                 repaint();
