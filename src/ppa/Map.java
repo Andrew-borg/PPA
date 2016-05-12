@@ -50,6 +50,17 @@ public class Map {
         return new Tile(0,0,0,0,0,0);
     }
     
+    public int[] getTileCoordinatesOfPoint(Point p){
+        for(int i = 0; i < mapWidth; i++){
+            for(int j = 0; j < mapHeight; j++){
+                if(map[i][j].contains(p)){
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+    }
+    
     public void placeTower(){
         if(Window.mouseClick.y < (mapHeight + 1)*tileSize
            && Window.mouseClick.x < (mapWidth + 1)*tileSize){//is mouse click in the map?
