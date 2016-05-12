@@ -1,45 +1,58 @@
 package ppa;
 
-public class Enemy {
+import java.awt.Point;
+import java.awt.*;
+
+public class Enemy extends Rectangle{
     private Tile[][] grid;
     private int temp=1;
     /*1 = Left
     2 = Right
     3 = Up
     4 = Down*/
-    private int r,c, health, speed;
+    private int x,y, health, speed;
+    private int direction;
     
-    public Enemy(Tile[][] grid, int x, int y){
+    public Enemy(int health, Tile[][] grid, int x, int y, int width, int height){
+        setBounds(x, y, width, height);
         this.grid = grid;
-        r = x;
-        c = y;
+        this.health = health;
+     
     }
     
     public Tile getDirection(){
-        if(r>0 && grid[r-1][c].getGroundID()==0 && temp != 2){
+        if(x>0 && grid[x-1][y].getGroundID()==0 && temp != 2){
+            Window.map.getTileCoordinatesOfPoint(new Point(x,y));
             temp = 1;
-            r--;
-            return grid[r][c];
+            x--;
+            return grid[x][y];
         }
-        if(r<grid.length && grid[r+1][c].getGroundID()==0 && temp != 1){
+        if(x<grid.length && grid[x+1][y].getGroundID()==0 && temp != 1){
             temp = 2;
-            r++;
-            return grid[r][c];
+            x++;
+            return grid[x][y];
         }
-        if(c>0 && grid[r][c-1].getGroundID()==0 && temp != 4){
+        if(y>0 && grid[x][y-1].getGroundID()==0 && temp != 4){
             temp = 3;
-            c--;
-            return grid[r][c];
+            y--;
+            return grid[x][y];
         }
-        if(c<grid[r].length && grid[r][c+1].getGroundID()==0 && temp != 3){
+        if(y<grid[x].length && grid[x][y+1].getGroundID()==0 && temp != 3){
             temp = 4;
-            c++;
-            return grid[r][c];
+            y++;
+            return grid[x][y];
         }
         return null;
     }
     
     public Tile getPosition(){
-        return grid[r][c];
+        return grid[x][y];
     }
+    
+    public int damage(int d){
+        health=health-d;
+        return health;
+    }
+    
+    
 }
