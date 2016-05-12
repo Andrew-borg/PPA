@@ -34,11 +34,8 @@ public class Tile extends Rectangle{
         //color the ground
         
         //color the tower
-        if(towerID == 1){
-            g.setColor(new Color(200, 20, 20));
-        }
         if(towerID != 0){
-            
+            g.setColor(towerColors[towerID-1]);
             g.fillOval(x+width/2-10, y+height/2-10, 20, 20);
         }
     }
