@@ -13,6 +13,7 @@ public class Enemy extends Rectangle{
     private int x,y, health, speed;
     private int direction;
     
+    
     public Enemy(int health, Tile[][] grid, int x, int y, int width, int height){
         setBounds(x, y, width, height);
         this.grid = grid;
@@ -45,14 +46,18 @@ public class Enemy extends Rectangle{
         return null;
     }
     
-    public Tile getPosition(){
-        return grid[x][y];
-    }
-    
     public int damage(int d){
         health=health-d;
         return health;
     }
     
+    public void draw(Graphics g){
+        g.setColor(Color.BLUE);
+        g.fillRect(x, y, width, height);
+    }
+    
+    public Tile getPosition(){
+        return grid[x][y];
+    }
     
 }
