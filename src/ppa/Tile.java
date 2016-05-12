@@ -12,6 +12,10 @@ import javax.swing.*;
 public class Tile extends Rectangle{
     private int groundID;
     private int towerID;
+    private Color[] towerColors = new Color[]
+    {   new Color(200, 20, 20), 
+        new Color(200, 20, 20), 
+        new Color(200, 20, 20)};
     
     public Tile(int x, int y, int width, int height, int groundID, int airID){
         setBounds(x, y, width, height);
@@ -34,6 +38,7 @@ public class Tile extends Rectangle{
             g.setColor(new Color(200, 20, 20));
         }
         if(towerID != 0){
+            
             g.fillOval(x+width/2-10, y+height/2-10, 20, 20);
         }
     }
