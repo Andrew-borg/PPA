@@ -39,7 +39,7 @@ public class Map {
         return map;
     }
     
-    private Tile getTileOfPoint(Point p){
+    public Tile getTileOfPoint(Point p){
         for(int i = 0; i < mapWidth; i++){
             for(int j = 0; j < mapHeight; j++){
                 if(map[i][j].contains(p)){
@@ -50,11 +50,12 @@ public class Map {
         return new Tile(0,0,0,0,0,0);
     }
     
-    public int[] getTileCoordinatesOfPoint(Point p){
+    public Point getTileCoordinatesOfPoint(int x, int y){
+        Point p = new Point(x, y);
         for(int i = 0; i < mapWidth; i++){
             for(int j = 0; j < mapHeight; j++){
                 if(map[i][j].contains(p)){
-                    return new int[]{i, j};
+                    return new Point(i, j);
                 }
             }
         }

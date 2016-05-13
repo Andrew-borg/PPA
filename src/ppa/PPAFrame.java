@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 public class PPAFrame extends JFrame{
     private static String title = "Political Punching Academy - Andrew Borg and Shubit Kumar";
-    private static Dimension size = new Dimension(800, 600);
+    public static Dimension size = new Dimension(800, 600);
     
     public static void main(String[] args) {
         PPAFrame frame = new PPAFrame();

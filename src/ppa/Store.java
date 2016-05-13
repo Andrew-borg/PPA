@@ -12,19 +12,20 @@ import java.awt.*;
  * @author Christopher
  */
 public class Store {
-    private int itemsInShop = 3;
     private int buttonSize = 32;
     private int buttonGap = 4;
     private int gapToMap = 40;
     private boolean hasItem = false;
     private int itemHeld;
     private int gold = 1000;
+    
+    private int itemsInShop = 3;
     private Rectangle[] buttons = new Rectangle[itemsInShop];
-    private int[] costs = new int[] {10, 0, 0};
+    private int[] costs = new int[] {10, 10, 10};
     private Color[] towerColors = new Color[]
     {   new Color(200, 20, 20), 
-        new Color(200, 20, 20), 
-        new Color(200, 20, 20)};
+        new Color(20, 200, 20), 
+        new Color(20, 20, 200)};
     
     public Store() {
         for(int i = 0; i < buttons.length; i++){
@@ -48,10 +49,8 @@ public class Store {
         }
         
         if(hasItem){//show held item
-            if(itemHeld == 0){
-                g.setColor(towerColors[itemHeld]);
-                g.fillOval(Window.mouseLocation.x, Window.mouseLocation.y, 20, 20);
-            }
+            g.setColor(towerColors[itemHeld]);
+            g.fillOval(Window.mouseLocation.x, Window.mouseLocation.y, 20, 20);
         }
         
         g.setColor(Color.YELLOW);

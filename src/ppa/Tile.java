@@ -10,12 +10,13 @@ import javax.swing.*;
 
 
 public class Tile extends Rectangle{
+    public int walkDirection;
     private int groundID;
     private int towerID;
     private Color[] towerColors = new Color[]
     {   new Color(200, 20, 20), 
-        new Color(200, 20, 20), 
-        new Color(200, 20, 20)};
+        new Color(20, 200, 20), 
+        new Color(20, 20, 200)};
     
     public Tile(int x, int y, int width, int height, int groundID, int airID){
         setBounds(x, y, width, height);
