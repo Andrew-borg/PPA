@@ -6,6 +6,10 @@
 package ppa;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -45,12 +49,36 @@ public class Store {
         
         for(int i = 0; i < buttons.length; i++){//show shop bar icons
             g.setColor(towerColors[i]);
-            g.fillOval(buttons[i].x+buttons[i].width/2-10, buttons[i].y+buttons[i].height/2-10, 20, 20);
+            //g.fillOval(buttons[i].x+buttons[i].width/2-10, buttons[i].y+buttons[i].height/2-10, 20, 20);
+            if (i+1 == 1) {
+                BufferedImage img = null;
+                try {
+                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Jeb.png"));
+                } catch (IOException e) {
+                }
+                g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
+            }
+            if (i+1 == 2) {
+                BufferedImage img = null;
+                try {
+                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
+                } catch (IOException e) {
+                }
+                g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
+            }
+            if (i+1 == 3) {
+                BufferedImage img = null;
+                try {
+                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Jeb.png"));
+                } catch (IOException e) {
+                }
+                g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
+            }
         }
         
         if(hasItem){//show held item
             g.setColor(towerColors[itemHeld]);
-            g.fillOval(Window.mouseLocation.x, Window.mouseLocation.y, 20, 20);
+            g.fillOval(Window.mouseLocation.x, Window.mouseLocation.y, 20, 20);//do here
         }
         
         g.setColor(Color.YELLOW);
