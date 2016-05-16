@@ -63,7 +63,7 @@ public class TheEnemies {
     public void removeCompletedPath(){
         for(int i = 0; i < enemyList.size(); i++){
             if(enemyList.get(i).getX() == endTile.x && enemyList.get(i).getY() == endTile.y){
-                Window.getHurt(10);
+                Window.getHurt(1);
                 enemyList.remove(i);
             }
         }
