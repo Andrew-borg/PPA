@@ -50,7 +50,7 @@ public class Window extends JPanel implements Runnable{
                 
         enemies.draw(g);
         
-        makeTowersShoot();
+        map.makeTowersShoot(g);
         
         g.setColor(Color.RED);
         g.drawString("\t\tHealth: " + health, 
