@@ -13,6 +13,11 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Tile extends Rectangle {
+    private Enemy target;
+    private int shootSpeed = 20;
+    private int shootDuration = 10;
+    private boolean isShooting = false;
+    private int frameCounter = 0;
 
     public int walkDirection;
     private int groundID;
@@ -20,6 +25,8 @@ public class Tile extends Rectangle {
     private Color[] towerColors = new Color[]{new Color(200, 20, 20),
         new Color(20, 200, 20),
         new Color(20, 20, 200)};
+    private int[] towerDamage = new int[]
+            {10, 10, 10};
 
     public Tile(int x, int y, int width, int height, int groundID, int airID) {
         setBounds(x, y, width, height);
@@ -44,7 +51,7 @@ public class Tile extends Rectangle {
             if (towerID == 1) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\VerminSupreme.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\VerminSupreme.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -52,7 +59,7 @@ public class Tile extends Rectangle {
             if (towerID == 2) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -60,7 +67,7 @@ public class Tile extends Rectangle {
             if (towerID == 3) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -83,4 +90,16 @@ public class Tile extends Rectangle {
     public void setTowerID(int id) {
         towerID = id;
     }
+    
+    public void shootWithTower(){
+        if(frameCounter % shootSpeed == 0){
+            if(target != null){
+                isShooting = true;
+            }
+        }
+        if(isShooting && frameCounter % shootSpeed <= shootDuration){
+            
+        }
+    }
+
 }
