@@ -86,7 +86,7 @@ public class Enemy extends Rectangle {
     public void draw(Graphics g) {
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+            img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
         } catch (IOException e) {
         }
         
