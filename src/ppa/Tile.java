@@ -91,14 +91,19 @@ public class Tile extends Rectangle {
         towerID = id;
     }
     
-    public void shootWithTower(){
+    public void shootWithTower(Graphics g){
         if(frameCounter % shootSpeed == 0){
             if(target != null){
                 isShooting = true;
             }
         }
         if(isShooting && frameCounter % shootSpeed <= shootDuration){
-            
+            Image img = null;
+            try {
+                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
+            } catch (IOException e) {
+            }
+            g.drawImage(img, target.x + 3, target.y + 3, null);
         }
     }
 
