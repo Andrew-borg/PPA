@@ -80,10 +80,10 @@ public class Map {
         }
     }
     
-    public void makeTowersShoot(){
+    public void makeTowersShoot(Graphics g){
         for(Tile[] column:map){
             for(Tile t: column){
-                t.shootWithTower();
+                t.shootWithTower(g);
             }
         }
     }
