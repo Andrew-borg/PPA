@@ -53,7 +53,7 @@ public class Store {
             if (i+1 == 1) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\VermineSupreme.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);

@@ -44,7 +44,7 @@ public class Tile extends Rectangle {
             if (towerID == 1) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\VerminSupreme.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
