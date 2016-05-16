@@ -18,6 +18,7 @@ public class Tile extends Rectangle {
     private int shootDuration = 10;
     private boolean isShooting = false;
     private int frameCounter = 0;
+    private int range = 150;
 
     public int walkDirection;
     private int groundID;
@@ -91,19 +92,35 @@ public class Tile extends Rectangle {
         towerID = id;
     }
     
+    private void updateTarget(){
+        if(target == null || new Point(target.x, target.y).distance(x, y) > range){
+            int topDistanceTraveled = 0;
+            Enemy furthestTraveledEnemy;
+            for(Enemy e:TheEnemies.enemyList){
+                
+            }
+        }
+    }
+    
     public void shootWithTower(Graphics g){
         if(frameCounter % shootSpeed == 0){
             if(target != null){
                 isShooting = true;
             }
         }
-        if(isShooting && frameCounter % shootSpeed <= shootDuration){
-            Image img = null;
-            try {
-                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
-            } catch (IOException e) {
+        if(isShooting){
+            if(frameCounter % shootSpeed <= shootDuration){
+                Image img = null;
+                try {
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
+                } catch (IOException e) {
+                }
+                g.drawImage(img, target.x + 3, target.y + 3, null);
             }
-            g.drawImage(img, target.x + 3, target.y + 3, null);
+            else{
+                isShooting = false;
+                target.damage(towerDamage[towerID - 1]);
+            }
         }
     }
 

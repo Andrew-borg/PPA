@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class TheEnemies {
     private int enemySize = Window.map.tileSize;
-    private ArrayList<Enemy> enemyList;
+    public static ArrayList<Enemy> enemyList;
     private Tile spawnTile, endTile;
     private int spawnRate = 120;
     private int frameCounter = -1;
