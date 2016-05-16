@@ -77,4 +77,13 @@ public class Map {
             }
         }
     }
+    
+    public void makeTowersShoot(){
+        for(Tile[] column:map){
+            for(Tile t: column){
+                t.shootWithTower();
+            }
+        }
+    }
+
 }
