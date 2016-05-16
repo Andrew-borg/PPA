@@ -7,18 +7,20 @@ package ppa;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class Map {
     public static int mapWidth = 20;
     public static int mapHeight = 15;
     public int tileSize = 32;
-//    public static String studentID = "";
+    public String studentID = "";
     
     public static Tile[][] map;
     
     public Map(){
-        
+//        Scanner s = new Scanner(System.in);
+//        System.out.println("Student ID:");
+//        studentID = s.next();
         map = new Tile[mapWidth][mapHeight];
         
         for(int i = 0; i < mapWidth; i++){
