@@ -16,6 +16,7 @@ public class Enemy extends Rectangle {
      2 = down
      3 = left
      4 = up*/
+    private final double edecider = Math.random();
 
     private int health;
     private int speed = 1;//speed is in frames between movements
@@ -85,15 +86,23 @@ public class Enemy extends Rectangle {
     }
 
     public void draw(Graphics g) {
+
         BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
-        } catch (IOException e) {
+        if (edecider < .5) {
+            try {
+                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
+            } catch (IOException e) {
+            }
         }
-        
+        if (edecider > .5) {
+            try {
+                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Jeb.png"));
+            } catch (IOException e) {
+            }
+        }
         g.fillRect(x, y, width, height);
-        g.drawImage(img, x+1, y+1, null);
-        
+        g.drawImage(img, x + 1, y + 1, null);
+
     }
 
     public int getHealth() {
