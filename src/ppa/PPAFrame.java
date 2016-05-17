@@ -7,15 +7,17 @@ package ppa;
 
 import java.awt.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 
 public class PPAFrame extends JFrame{
-    public static String user = "Christopher";
+    public static String user = "";
     private static String title = "Political Punching Academy - Andrew Borg and Shubit Kumar";
     public static Dimension size = new Dimension(800, 600);
     
     public static void main(String[] args) {
+        user = JOptionPane.showInputDialog("Computer name");
         PPAFrame frame = new PPAFrame();
     }
     
