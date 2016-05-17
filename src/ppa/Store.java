@@ -77,32 +77,30 @@ public class Store {
         }
         
         if(hasItem){//show held item
-            if (itemHeld == 1) {
+            if (itemHeld+1 == 1) {
                 BufferedImage img = null;
                 try {
                     img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
                 } catch (IOException e) {
                 }
-                g.drawImage(img, Window.mouseClick.x + 1, Window.mouseClick.y + 1, null);
+                g.drawImage(img, Window.mouseLocation.x + 1, Window.mouseLocation.y + 1, null);
             }
-            if (itemHeld == 2) {
+            if (itemHeld+1 == 2) {
                 BufferedImage img = null;
                 try {
                     img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
-                g.drawImage(img, Window.mouseClick.x + 1, Window.mouseClick.y + 1, null);
+                g.drawImage(img, Window.mouseLocation.x + 1, Window.mouseLocation.y + 1, null);
             }
-            if (itemHeld == 3) {
+            if (itemHeld+1 == 3) {
                 BufferedImage img = null;
                 try {
                     img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
-                g.drawImage(img, Window.mouseClick.x + 1, Window.mouseClick.y + 1, null);
+                g.drawImage(img, Window.mouseLocation.x + 1, Window.mouseLocation.y + 1, null);
             }
-//            g.setColor(towerColors[itemHeld]);
-//            g.fillOval(Window.mouseLocation.x, Window.mouseLocation.y, 20, 20);//do here
         }
         
         g.setColor(Color.YELLOW);
