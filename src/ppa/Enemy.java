@@ -21,7 +21,7 @@ public class Enemy extends Rectangle {
     private int speed = 1;//speed is in frames between movements
     private int frameCounter = 0;
     
-    public int killReward = 2;
+    public int killReward = 5;
 
     public Enemy(int health, /*Tile[][] grid,*/ int x, int y, int width, int height) {
         setBounds(x, y, width, height);

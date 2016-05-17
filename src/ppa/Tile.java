@@ -43,6 +43,14 @@ public class Tile extends Rectangle {
             g.setColor(new Color(140, 140, 140));
         }
         g.fillRect(x + 1, y + 1, width - 2, height - 2);
+        if(groundID == 5){
+            BufferedImage img = null;
+                try {
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\WhiteHouse.jpg"));
+                } catch (IOException e) {
+                }
+                g.drawImage(img, x, y, null);
+        }
         //color the ground
 
         //color the tower
