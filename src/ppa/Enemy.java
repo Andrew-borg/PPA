@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 public class Enemy extends Rectangle {
     //private Tile[][] grid; No longer used
 
-    private int distanceTraveled = 0;
+    public int distanceTraveled = 0;
     private int direction = 0;
     /*1 = right
      2 = down
@@ -20,6 +20,8 @@ public class Enemy extends Rectangle {
     private int health;
     private int speed = 1;//speed is in frames between movements
     private int frameCounter = 0;
+    
+    public int killReward = 2;
 
     public Enemy(int health, /*Tile[][] grid,*/ int x, int y, int width, int height) {
         setBounds(x, y, width, height);
@@ -56,7 +58,6 @@ public class Enemy extends Rectangle {
              } No longer used
              */
             direction = Window.map.getTileOfPoint(new Point(x, y)).walkDirection;
-            distanceTraveled = 0;
         }
         if (frameCounter == speed) {
             if (direction == 1) {
@@ -86,7 +87,7 @@ public class Enemy extends Rectangle {
     public void draw(Graphics g) {
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("C:\\Users\\761618\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
+            img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Donald.jpg"));
         } catch (IOException e) {
         }
         

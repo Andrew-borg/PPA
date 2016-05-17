@@ -21,7 +21,7 @@ public class Store {
     private int gapToMap = 40;
     private boolean hasItem = false;
     private int itemHeld;
-    private int gold = 1000;
+    private int gold = 30;
     
     private int itemsInShop = 3;
     private Rectangle[] buttons = new Rectangle[itemsInShop];
@@ -53,7 +53,7 @@ public class Store {
             if (i+1 == 1) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
@@ -61,7 +61,7 @@ public class Store {
             if (i+1 == 2) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
@@ -69,7 +69,7 @@ public class Store {
             if (i+1 == 3) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
@@ -105,6 +105,10 @@ public class Store {
     
     public int getGold(){
         return gold;
+    }
+    
+    public void addGold(int g){
+        gold += g;
     }
     
     public void spendGold(int amt){

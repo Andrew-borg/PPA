@@ -15,10 +15,10 @@ import javax.swing.*;
 public class Tile extends Rectangle {
     private Enemy target;
     private int shootSpeed = 20;
-    private int shootDuration = 10;
+    private int shootDuration = 5;
     private boolean isShooting = false;
     private int frameCounter = 0;
-    private int range = 150;
+    private int range = 80;
 
     public int walkDirection;
     private int groundID;
@@ -27,7 +27,7 @@ public class Tile extends Rectangle {
         new Color(20, 200, 20),
         new Color(20, 20, 200)};
     private int[] towerDamage = new int[]
-            {10, 10, 10};
+            {5, 5, 5};
 
     public Tile(int x, int y, int width, int height, int groundID, int airID) {
         setBounds(x, y, width, height);
@@ -52,7 +52,7 @@ public class Tile extends Rectangle {
             if (towerID == 1) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Vermin.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -60,7 +60,7 @@ public class Tile extends Rectangle {
             if (towerID == 2) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -68,7 +68,7 @@ public class Tile extends Rectangle {
             if (towerID == 3) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -93,18 +93,23 @@ public class Tile extends Rectangle {
     }
     
     private void updateTarget(){
-        if(target == null || new Point(target.x, target.y).distance(x, y) > range){
-            int topDistanceTraveled = 0;
-            Enemy furthestTraveledEnemy;
-            for(Enemy e:TheEnemies.enemyList){
-                
+        int topDistanceTraveled = 0;
+        Enemy furthestTraveledEnemy = null;
+        for(Enemy e:TheEnemies.enemyList){
+            if(e.distanceTraveled > topDistanceTraveled){
+                if(new Point(e.x,e.y).distance(x, y) <= range){
+                    furthestTraveledEnemy = e;
+                    topDistanceTraveled = e.distanceTraveled;
+                }
             }
         }
+        target = furthestTraveledEnemy;
     }
     
     public void shootWithTower(Graphics g){
         if(frameCounter % shootSpeed == 0){
-            if(target != null){
+            updateTarget();
+            if(target != null && towerID != 0){
                 isShooting = true;
             }
         }
@@ -112,7 +117,7 @@ public class Tile extends Rectangle {
             if(frameCounter % shootSpeed <= shootDuration){
                 Image img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.studentID + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, target.x + 3, target.y + 3, null);
@@ -122,6 +127,6 @@ public class Tile extends Rectangle {
                 target.damage(towerDamage[towerID - 1]);
             }
         }
+        frameCounter++;
     }
-
 }

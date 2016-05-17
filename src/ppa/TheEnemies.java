@@ -53,9 +53,12 @@ public class TheEnemies {
     }
     
     public void removeDead(){
-        for(Enemy e:enemyList){
+        for(int i = 0; i < enemyList.size(); i++){
+            Enemy e = enemyList.get(i);
             if(e.getHealth() <= 0){
-                enemyList.remove(e);
+                Window.store.addGold(e.killReward);
+                e = null; // so retargeting works properly
+                enemyList.remove(i);
             }
         }
     }
