@@ -63,6 +63,9 @@ public class Window extends JPanel implements Runnable{
         repaint();
         timerLast = System.currentTimeMillis();
         while(true){
+            if(isGameOver()){
+                
+            }
             if(System.currentTimeMillis() - timerLast >= 1000/fps){  //restricts game to a certain framerate
                 repaint();
                 timerLast = System.currentTimeMillis();
@@ -72,5 +75,9 @@ public class Window extends JPanel implements Runnable{
     
     public static void getHurt(int d){
         health -= d;
+    }
+    
+    private boolean isGameOver(){
+        return health <= 0;
     }
 }
