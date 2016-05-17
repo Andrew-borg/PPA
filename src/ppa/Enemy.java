@@ -20,6 +20,7 @@ public class Enemy extends Rectangle {
 
     private int health;
     private int speed = 1;//speed is in frames between movements
+    private int distancePerMovement = 8;//must evenly divide 32
     private int frameCounter = 0;
     
     public int killReward = 5;
@@ -62,17 +63,17 @@ public class Enemy extends Rectangle {
         }
         if (frameCounter == speed) {
             if (direction == 1) {
-                x += 2;
-                distanceTraveled += 2;
+                x += distancePerMovement;
+                distanceTraveled += distancePerMovement;
             } else if (direction == 2) {
-                y += 2;
-                distanceTraveled += 2;
+                y += distancePerMovement;
+                distanceTraveled += distancePerMovement;
             } else if (direction == 3) {
-                x -= 2;
-                distanceTraveled += 2;
+                x -= distancePerMovement;
+                distanceTraveled += distancePerMovement;
             } else if (direction == 4) {
-                y -= 2;
-                distanceTraveled += 2;
+                y -= distancePerMovement;
+                distanceTraveled += distancePerMovement;
             }
             frameCounter = 0;
         } else {

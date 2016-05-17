@@ -6,6 +6,10 @@
 package ppa;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Window extends JPanel implements Runnable{
@@ -56,16 +60,20 @@ public class Window extends JPanel implements Runnable{
         g.drawString("\t\tHealth: " + health, 
                 map.map[map.map.length-1][0].x + map.tileSize, 
                 map.map[map.map.length-1][0].y + map.tileSize);
-        
+        if(isGameOver()){
+            BufferedImage img = null;
+            try {
+                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\TrumpTower.jpg"));
+            } catch (IOException e) {
+            }
+            g.drawImage(img, 0, 0, null);
+        }
     }
     
     public void run(){
         repaint();
         timerLast = System.currentTimeMillis();
-        while(true){
-            if(isGameOver()){
-                
-            }
+        while(!isGameOver()){
             if(System.currentTimeMillis() - timerLast >= 1000/fps){  //restricts game to a certain framerate
                 repaint();
                 timerLast = System.currentTimeMillis();

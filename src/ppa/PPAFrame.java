@@ -6,6 +6,10 @@
 package ppa;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -19,6 +23,7 @@ public class PPAFrame extends JFrame{
     public static void main(String[] args) {
         user = JOptionPane.showInputDialog("Computer name");
         PPAFrame frame = new PPAFrame();
+        BufferedImage img = null;
     }
     
     public void init(){
