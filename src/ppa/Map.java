@@ -16,6 +16,8 @@ public class Map {
     
     public static Tile[][] map;
     
+    public static int towersOnMap = 0;
+    
     public Map(){
         map = new Tile[mapWidth][mapHeight];
         
@@ -71,6 +73,7 @@ public class Map {
                         if(getTileOfPoint(Window.mouseClick).getGroundID() == 0){//can't place tower on the road
                             getTileOfPoint(Window.mouseClick).setTowerID(Window.store.getItemHeld()+1);//build tower
                             Window.store.spendGold(Window.store.getCost(Window.store.getItemHeld()));//Pay for tower
+                            towersOnMap++;//count the tower
                         }
                     }
                 }
