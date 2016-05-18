@@ -65,7 +65,7 @@ public class TheEnemies {
     
     public void removeCompletedPath(){
         for(int i = 0; i < enemyList.size(); i++){
-            if(enemyList.get(i).getX() == endTile.x && enemyList.get(i).getY() == endTile.y){
+            if(Window.map.getTileOfPoint(new Point(enemyList.get(i).x, enemyList.get(i).y)).walkDirection == 5){
                 Window.getHurt(10);
                 enemyList.remove(i);
             }
