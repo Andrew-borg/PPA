@@ -20,7 +20,7 @@ public class Enemy extends Rectangle {
 
     private int health;
     private int speed = 1;//speed is in frames between movements
-    private int distancePerMovement = 8;//must evenly divide 32
+    private int distancePerMovement = 2;//must evenly divide 32
     private int frameCounter = 0;
     
     public int killReward = 5;

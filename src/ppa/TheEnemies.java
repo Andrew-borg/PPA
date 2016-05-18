@@ -17,6 +17,7 @@ public class TheEnemies {
     public static ArrayList<Enemy> enemyList;
     private Tile spawnTile, endTile;
     private int spawnRate = 120;
+    private int towersPerDificultyChange = 7;
     private int frameCounter = -1;
     
     public TheEnemies(Tile spawn, Tile end){
@@ -42,7 +43,7 @@ public class TheEnemies {
         if(frameCounter == -1){
             enemyList.add(new Enemy(100, spawnTile.x, spawnTile.y, enemySize, enemySize));
         }
-        if(frameCounter == spawnRate){
+        if(frameCounter == spawnRate / (1+(2*Map.towersOnMap / towersPerDificultyChange))){
             enemyList.add(new Enemy(100, spawnTile.x, spawnTile.y, enemySize, enemySize));
             
             frameCounter = 0;
@@ -65,7 +66,7 @@ public class TheEnemies {
     
     public void removeCompletedPath(){
         for(int i = 0; i < enemyList.size(); i++){
-            if(enemyList.get(i).getX() == endTile.x && enemyList.get(i).getY() == endTile.y){
+            if(Window.map.getTileOfPoint(new Point(enemyList.get(i).x, enemyList.get(i).y)).walkDirection == 5){
                 Window.getHurt(10);
                 enemyList.remove(i);
             }
