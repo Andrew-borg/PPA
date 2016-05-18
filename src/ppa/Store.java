@@ -25,7 +25,7 @@ public class Store {
     
     private int itemsInShop = 3;
     private Rectangle[] buttons = new Rectangle[itemsInShop];
-    private int[] costs = new int[] {10, 10, 10};
+    private int[] costs = new int[] {25, 15, 10};
     private Color[] towerColors = new Color[]
     {   new Color(200, 20, 20), 
         new Color(20, 200, 20), 
@@ -65,7 +65,7 @@ public class Store {
             if (i+1 == 2) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
@@ -73,7 +73,7 @@ public class Store {
             if (i+1 == 3) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);

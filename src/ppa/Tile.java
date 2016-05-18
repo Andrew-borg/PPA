@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Tile extends Rectangle {
+
     private Enemy target;
     private int shootSpeed = 20;
     private int shootDuration = 5;
@@ -23,11 +24,14 @@ public class Tile extends Rectangle {
     public int walkDirection;
     private int groundID;
     private int towerID;
+    // 0 = No Tower
+    // 1 = Vermin Supreme
+    // 2 = Bernie Sanders
+    // 3 = Hillary Clinton
     private Color[] towerColors = new Color[]{new Color(200, 20, 20),
         new Color(20, 200, 20),
         new Color(20, 20, 200)};
-    private int[] towerDamage = new int[]
-            {5, 5, 5};
+    private int[] towerDamage = new int[]{5, 5, 5};
 
     public Tile(int x, int y, int width, int height, int groundID, int airID) {
         setBounds(x, y, width, height);
@@ -43,13 +47,13 @@ public class Tile extends Rectangle {
             g.setColor(new Color(140, 140, 140));
         }
         g.fillRect(x + 1, y + 1, width - 2, height - 2);
-        if(walkDirection == 5){
+        if (walkDirection == 5) {
             BufferedImage img = null;
-                try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\WhiteHouse.jpg"));
-                } catch (IOException e) {
-                }
-                g.drawImage(img, x, y, null);
+            try {
+                img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\WhiteHouse.jpg"));
+            } catch (IOException e) {
+            }
+            g.drawImage(img, x, y, null);
         }
         //color the ground
 
@@ -99,13 +103,13 @@ public class Tile extends Rectangle {
     public void setTowerID(int id) {
         towerID = id;
     }
-    
-    private void updateTarget(){
+
+    private void updateTarget() {
         int topDistanceTraveled = 0;
         Enemy furthestTraveledEnemy = null;
-        for(Enemy e:TheEnemies.enemyList){
-            if(e.distanceTraveled > topDistanceTraveled){
-                if(new Point(e.x,e.y).distance(x, y) <= range){
+        for (Enemy e : TheEnemies.enemyList) {
+            if (e.distanceTraveled > topDistanceTraveled) {
+                if (new Point(e.x, e.y).distance(x, y) <= range) {
                     furthestTraveledEnemy = e;
                     topDistanceTraveled = e.distanceTraveled;
                 }
@@ -113,28 +117,73 @@ public class Tile extends Rectangle {
         }
         target = furthestTraveledEnemy;
     }
-    
-    public void shootWithTower(Graphics g){
-        if(frameCounter % shootSpeed == 0){
-            updateTarget();
-            if(target != null && towerID != 0){
-                isShooting = true;
-            }
-        }
-        if(isShooting){
-            if(frameCounter % shootSpeed <= shootDuration){
-                Image img = null;
-                try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
-                } catch (IOException e) {
+
+    public void shootWithTower(Graphics g) {
+        if (getTowerID() == 1) {
+            if (frameCounter % shootSpeed == 0) {
+                updateTarget();
+                if (target != null && towerID != 0) {
+                    isShooting = true;
                 }
-                g.drawImage(img, target.x + 3, target.y + 3, null);
             }
-            else{
-                isShooting = false;
-                target.damage(towerDamage[towerID - 1]);
+            if (isShooting) {
+                if (frameCounter % shootSpeed <= shootDuration) {
+                    Image img = null;
+                    try {
+                        img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Staff.jpg"));
+                    } catch (IOException e) {
+                    }
+                    g.drawImage(img, target.x + 3, target.y + 3, null);
+                } else {
+                    isShooting = false;
+                    target.damage(towerDamage[towerID - 5]);
+                }
             }
+            frameCounter++;
         }
-        frameCounter++;
+        if (getTowerID() == 2) {
+            if (frameCounter % shootSpeed == 0) {
+                updateTarget();
+                if (target != null && towerID != 0) {
+                    isShooting = true;
+                }
+            }
+            if (isShooting) {
+                if (frameCounter % shootSpeed <= shootDuration) {
+                    Image img = null;
+                    try {
+                        img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Cash.jpg"));
+                    } catch (IOException e) {
+                    }
+                    g.drawImage(img, target.x + 3, target.y + 3, null);
+                } else {
+                    isShooting = false;
+                    target.damage(towerDamage[towerID - 2]);
+                }
+            }
+            frameCounter++;
+        }
+        if (getTowerID() == 3) {
+            if (frameCounter % shootSpeed == 0) {
+                updateTarget();
+                if (target != null && towerID != 0) {
+                    isShooting = true;
+                }
+            }
+            if (isShooting) {
+                if (frameCounter % shootSpeed <= shootDuration) {
+                    Image img = null;
+                    try {
+                        img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Fist.jpg"));
+                    } catch (IOException e) {
+                    }
+                    g.drawImage(img, target.x + 3, target.y + 3, null);
+                } else {
+                    isShooting = false;
+                    target.damage(towerDamage[towerID - 1]);
+                }
+            }
+            frameCounter++;
+        }
     }
 }
