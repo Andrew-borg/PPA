@@ -31,7 +31,7 @@ public class Tile extends Rectangle {
     private Color[] towerColors = new Color[]{new Color(200, 20, 20),
         new Color(20, 200, 20),
         new Color(20, 20, 200)};
-    private int[] towerDamage = new int[]{5, 5, 5};
+    private int[] towerDamage = new int[]{10, 7, 5};
 
     public Tile(int x, int y, int width, int height, int groundID, int airID) {
         setBounds(x, y, width, height);
@@ -72,7 +72,7 @@ public class Tile extends Rectangle {
             if (towerID == 2) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -80,7 +80,7 @@ public class Tile extends Rectangle {
             if (towerID == 3) {
                 BufferedImage img = null;
                 try {
-                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Bernie.jpg"));
+                    img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\Hillary.png"));
                 } catch (IOException e) {
                 }
                 g.drawImage(img, x + 1, y + 1, null);
@@ -136,7 +136,7 @@ public class Tile extends Rectangle {
                     g.drawImage(img, target.x + 3, target.y + 3, null);
                 } else {
                     isShooting = false;
-                    target.damage(towerDamage[towerID - 5]);
+                    target.damage(towerDamage[towerID - 1]);
                 }
             }
             frameCounter++;
@@ -158,7 +158,7 @@ public class Tile extends Rectangle {
                     g.drawImage(img, target.x + 3, target.y + 3, null);
                 } else {
                     isShooting = false;
-                    target.damage(towerDamage[towerID - 2]);
+                    target.damage(towerDamage[towerID - 1]);
                 }
             }
             frameCounter++;
