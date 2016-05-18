@@ -43,7 +43,7 @@ public class Tile extends Rectangle {
             g.setColor(new Color(140, 140, 140));
         }
         g.fillRect(x + 1, y + 1, width - 2, height - 2);
-        if(walkDirection == 5){
+        if(walkDirection == 5){//5 is what signifies the end.
             BufferedImage img = null;
                 try {
                     img = ImageIO.read(new File("C:\\Users\\" + PPAFrame.user + "\\Documents\\NetBeansProjects\\PPA\\src\\ppa\\WhiteHouse.jpg"));

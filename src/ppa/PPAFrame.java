@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class PPAFrame extends JFrame{
     public static String user = "";
-    private static String title = "Political Punching Academy - Andrew Borg and Shubit Kumar";
+    private static String title = "Trump Tower Defense - Andrew Borg and Shubit Kumar";
     public static Dimension size = new Dimension(800, 600);
     
     public static void main(String[] args) {
