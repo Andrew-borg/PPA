@@ -47,9 +47,13 @@ public class Store {
             g.fillRect(buttons[i].x, buttons[i].y, buttonSize, buttonSize);
         }
         
+        
         for(int i = 0; i < buttons.length; i++){//show shop bar icons
+            g.setColor(Color.YELLOW);
+            g.drawString(""+costs[i], buttons[i].x+buttonSize-25, buttons[i].y+buttonSize+15);
             g.setColor(towerColors[i]);
             //g.fillOval(buttons[i].x+buttons[i].width/2-10, buttons[i].y+buttons[i].height/2-10, 20, 20);
+            
             if (i+1 == 1) {
                 BufferedImage img = null;
                 try {
@@ -75,6 +79,8 @@ public class Store {
                 g.drawImage(img, buttons[i].x + 1, buttons[i].y + 1, null);
             }
         }
+        
+        
         
         if(hasItem){//show held item
             if (itemHeld+1 == 1) {
